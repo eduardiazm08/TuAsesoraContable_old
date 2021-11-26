@@ -1,0 +1,36 @@
+#upload {
+    opacity: 0;  
+  }
+  
+  #upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+  
+  .image-area {
+    border: 2px dashed rgba(4, 165, 66, 0.7);
+    position: relative;    
+    height: 150px;
+    width: 100%;
+  }
+
+  
+/*   .image-area::before {
+    content: 'Resultado de imagen subida';
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    z-index: 1;
+  } */
+  
+  .image-area img {
+    z-index: 2;
+    position: relative;
+  }

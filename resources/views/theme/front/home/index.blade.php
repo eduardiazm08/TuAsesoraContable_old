@@ -1,0 +1,38 @@
+@extends('theme.front.template.main', ['activePage' => 'Home', 'titlePage' => __('Inicio'), 'title' => 'Inicio'])
+
+@section('slider')
+    @include('theme.front.home.slider')
+@endsection
+@section('growth')
+    @include('theme.front.home.growth')
+@endsection
+@section('welcome')
+    @include('theme.front.home.welcome')
+@endsection
+@section('video')
+    @include('theme.front.home.video')
+@endsection
+@section('help')
+    @include('theme.front.home.help')
+@endsection
+@section('carrusel')
+    @include('theme.front.home.carrusel')
+@endsection
+@section('brand-carrusel')
+    @include('theme.front.home.brand-carrusel')
+@endsection
+@section('factory-categorie')
+    @include('theme.front.home.factory-categorie')
+@endsection
+@section('team')
+    @include('theme.front.home.team')
+@endsection
+@section('why-choose')
+    @include('theme.front.home.why-choose')
+@endsection
+@section('map')
+    @include('theme.front.home.map')
+@endsection
+@section('contact')
+    @include('theme.front.home.contact')
+@endsection
