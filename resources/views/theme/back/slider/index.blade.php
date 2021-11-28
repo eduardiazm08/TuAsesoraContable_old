@@ -8,7 +8,7 @@
 
 @section('content')
     <a href="{{route('slider.crear')}}" class="btn btn-primary">CREAR</a>
-   
+
     <table class="table table-striped mt-4">
         <thead class="table-dark">
             <tr>
@@ -25,22 +25,22 @@
                 <td>{{ $s->id}}</td>
                 <td>{{ $s->tit_slider}} {{ $s->tit_des_slider}}</td>
                 <td>{{ $s->desc_slider}}</td>
-                <td><img src="{{ asset("$s->rute_img_slider" )}}" alt="Slider{{ $s->id}}_dimet" width="90%" height="100"></td>
+                <td><img src="{{ asset("/imagen/Slider/$s->rute_img_slider" )}}" alt="Slider{{ $s->id}}_dimet" width="90%" height="100"></td>
                 <td>
                     <form action="{{route('slider.ver',$s->id)}}" method="post">
                         @method('GET')
                         <button type="submit" class="btn btn-app btn-success"><i class="fas fa-eye"> </i>Ver</button>
-                        <a href="{{route('slider.editar', $s->id)}}" class="btn btn-app"><i class="fas fa-edit"> </i>Editar</a>                        
+                        <a href="{{route('slider.editar', $s->id)}}" class="btn btn-app"><i class="fas fa-edit"> </i>Editar</a>
                     </form>
                     <form action="{{route('slider.eliminar',$s->id)}}" method="post" class="eliminar-slider">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-app btn-danger"><i class="fas fa-trash"> </i>Eliminar</button>
                     </form>
-                    
+
                 </td>
             </tr>
-            @endforeach            
+            @endforeach
         </tbody>
     </table>
 @stop
@@ -59,7 +59,7 @@
                 'success'
             )
         </script>
-        
+
     @endif
     <script>
         $('.eliminar-slider').submit(function(e){
@@ -79,5 +79,5 @@
                 }
             })
         })
-    </script>    
+    </script>
 @stop

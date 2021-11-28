@@ -1,7 +1,7 @@
 <section class="main-slider main-slider-two">
     <div class="swiper-container thm-swiper__slider" data-swiper-options='
-        {   
-            "slidesPerView": 1, 
+        {
+            "slidesPerView": 1,
             "loop": true,
             "effect": "fade",
             "pagination": {
@@ -21,7 +21,7 @@
             @foreach($slider as $s)
                 <div class="swiper-slide">
                     <div class="image-layer"
-                        style="background-image: url({{$s->rute_img_slider}});">
+                        style="background-image: url(imagen/slider/{{$s->rute_img_slider}});">
                     </div>
                     <div class="image-layer-overlay"></div>
                     <!-- /.image-layer -->
@@ -30,7 +30,7 @@
                             <div class="col-lg-12">
                                 <div class="main-slider__content">
                                     <div class="main-slider-two__map"
-                                        style="background-image: url({{ $s->rute_img_slider }});">
+                                        style="background-image: url(imagen/slider/{{$s->rute_img_slider}});">
                                     </div>
                                     <h3>{{$s->tit_slider}}</h3>
                                     <h2><span>{{$s->tit_des_slider}}</span></h2>

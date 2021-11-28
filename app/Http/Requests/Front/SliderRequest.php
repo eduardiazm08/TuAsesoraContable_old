@@ -24,8 +24,8 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'url_img' => 'required',
-            'titulo_slider' => 'nullable'
+            "rute_img_slider" => "required|image|mimes:jpeg,png|max:2000",
+            'tit_slider' => 'nullable'
         ];
     }
 }

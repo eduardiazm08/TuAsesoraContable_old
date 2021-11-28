@@ -40,21 +40,19 @@ class SliderController extends Controller
      */
     public function store(SliderRequest $request)
     {
-        $Sliders = new Slider();
-        $img = $request->file('url_img')->store('public');
-        $url = Storage::url($img);
-        
-        $Sliders->rute_img_slider       = $url;
-        $Sliders->tit_slider            = $request->get('titulo_slider');
-        $Sliders->tit_des_slider        = $request->get('titulo_destacado');
-        $Sliders->desc_slider           = $request->get('desc_slider');
-        $Sliders->txt_btn_slider        = $request->get('txt_btn');
-        $Sliders->url_btn_slider        = $request->get('url_btn');
+        $request->validated();
+        $validado = $request->all();
 
+        if($imagen = $request->file('rute_img_slider')){
+            $rutaGuardada = 'imagen/Slider/';
+            $imagenSlider = date('YmhHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardada, $imagenSlider);
+            $validado['rute_img_slider'] = "$imagenSlider";
+        }
 
-        $Sliders->save();
+        Slider::create($validado);
 
-        return redirect('/admin/slider/crear');
+        return redirect('/admin/slider/crear')->with('mensaje', 'Slider guardado correctamente');
     }
 
     /**
@@ -65,7 +63,7 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -87,9 +85,21 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SliderRequest $request, $id)
     {
-        //
+        $request->validated();
+        $validado = $request->all();
+
+        if($imagen = $request->file('rute_img_slider')){
+            $rutaGuardada = 'imagen/Slider/';
+            $imagenSlider = date('YmhHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardada, $imagenSlider);
+            $validado['rute_img_slider'] = "$imagenSlider";
+        }
+
+        Slider::findOrFail($id)->update($request->validated());
+
+        return redirect('/admin/slider/crear');
     }
 
     /**
@@ -100,6 +110,7 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Slider::destroy($id);
+        return redirect('/admin/slider')->with('mensaje', 'Slider Eliminado correctamente');
     }
 }

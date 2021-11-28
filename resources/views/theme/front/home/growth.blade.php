@@ -8,17 +8,16 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="business-growth__left">
                         <div class="section-title text-left">
-                            <span class="section-title__tagline">30 Years of Experience</span>
-                            <h2 class="section-title__title">Business Growth in <br> IT Consulting Solutions
+                            <span class="section-title__tagline">Tu Asesora Contable</span>
+                            <h2 class="section-title__title">Nuestros Servicios
                             </h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="business-growth__right">
-                        <p class="business-growth__right-text">Lorem ipsum is simply free text dolor sit am
-                            adipi we help you ensure everyone is in the right jobs sicing elit, sed do
-                            consulting firms Et leggings across the nation tempor.</p>
+                        <p class="business-growth__right-text">Somos especialistas en Asesoría Tributaría, Laboral, Contable y Legal.
+                        Damos nuestros servicios a una amplia gama de empresas de diversos mercados y sectores económicos.​</p>
                     </div>
                 </div>
             </div>
@@ -35,10 +34,15 @@
                         </div>
                         <div class="business-growth__content">
                             <h4 class="business-growth__title">
-                                <a href="services.html">Perfect Solution that your Business Demands</a>
+                                <a href="services.html">Obligaciones Tributarias Mensuales</a>
                             </h4>
-                            <p class="business-growth__text">Lorem ipsum dolor amet, consectetur notted adip
-                                sicing elit text.</p>
+                            <p class="business-growth__text">
+                                - Completar Registro de Compra y Venta <br>
+                                - Declaración del Formulario 29 <br>
+                                - Correo informativo con los impuestos declarados <br>
+                                - Libros Contables para una empresa con contabilidad simplificada <br>
+                                - Apoyo en temas contables por WhatsApp y correo. <br>
+                                Valor: $40.000 mensuales. Si la empresa tiene contabilidad completa el valor es de $55.000 mensuales.</p>
                         </div>
                     </div>
                 </div>
@@ -50,10 +54,9 @@
                         </div>
                         <div class="business-growth__content">
                             <h4 class="business-growth__title">
-                                <a href="about.html">User generated content in real-time will have</a>
+                                <a href="about.html">Administración de Personal</a>
                             </h4>
-                            <p class="business-growth__text">Lorem ipsum dolor amet, consectetur notted adip
-                                sicing elit text.</p>
+                            <p class="business-growth__text">Te apoyamos con todo el proceso de contratacion de trabajadores, liquidaciones de sueldo y finiquitos</p>
                         </div>
                     </div>
                 </div>
