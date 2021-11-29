@@ -93,7 +93,7 @@
             @enderror
             <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
                 <input id="upload" name="rute_img_slider" type="file" onchange="readURL(this);" class="form-control border-0" value="@if (isset($data['rute_img_slider']))
-                {{asset('imagen/Slider/'.$data['rute_img_slider'])}}@endif" accept="image/*">
+                {{$data['rute_img_slider']}}@endif" accept="image/*">
                 <label id="upload-label" for="upload" class="font-weight-light text-muted">Elegir Imagen (*)</label>
                 <div class="input-group-append">
                     <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Elegir Imagen (*)</small></label>
@@ -102,9 +102,4 @@
         </div>
     </div>
 </div>
-<div class="row float-right">
-    <div class="col-12">
-        <a href="{{route('slider')}}" class="btn btn-danger" tabindex="5">CANCELAR</a>
-        <button type="submit" class="btn btn-primary" tabindex="4">GUARDAR</button>
-    </div>
-</div>
+

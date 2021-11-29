@@ -54,24 +54,7 @@ class SliderController extends Controller
 
         return redirect('/admin/slider/crear')->with('mensaje', 'Slider guardado correctamente');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         $data = Slider::findOrFail($id);
@@ -85,9 +68,11 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SliderRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $request->validated();
+        $request->validate([
+            'tit_slider' => 'nullable'
+        ]);
         $validado = $request->all();
 
         if($imagen = $request->file('rute_img_slider')){
@@ -96,10 +81,13 @@ class SliderController extends Controller
             $imagen->move($rutaGuardada, $imagenSlider);
             $validado['rute_img_slider'] = "$imagenSlider";
         }
+        else {
+            unset($validado['imagen']);
+        }
 
-        Slider::findOrFail($id)->update($request->validated());
+        Slider::findOrFail($id)->update($validado);
 
-        return redirect('/admin/slider/crear');
+        return redirect('/admin/slider')->with('mensaje', 'Slider editado correctamente');
     }
 
     /**

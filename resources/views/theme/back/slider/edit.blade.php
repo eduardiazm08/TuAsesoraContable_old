@@ -23,6 +23,12 @@
                         @csrf
                         @method('PUT')
                         @include('theme.back.slider.form')
+                        <div class="row float-right">
+                            <div class="col-12">
+                                <a href="{{route('slider')}}" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                <button type="submit" class="btn btn-primary" tabindex="4">Actualizar</button>
+                            </div>
+                        </div>
                     </form>
                   <!-- /input-group -->
                 </div>
@@ -48,7 +54,7 @@
                 'success'
             )
         </script>
-        
+
     @endif
     <script>
         $('.crear-slider').submit(function(e){
@@ -68,5 +74,5 @@
                 }
             })
         })
-    </script> 
+    </script>
 @stop

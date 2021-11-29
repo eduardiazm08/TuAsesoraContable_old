@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -23,6 +23,12 @@
                     <form method="POST" enctype="multipart/form-data" action="{{route('slider.guardar')}}" class="crear-slider">
                         @csrf
                         @include('theme.back.slider.form')
+                        <div class="row float-right">
+                            <div class="col-12">
+                                <a href="{{route('slider')}}" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                <button type="submit" class="btn btn-primary" tabindex="4">Crear Slider</button>
+                            </div>
+                        </div>
                     </form>
                   <!-- /input-group -->
                 </div>
@@ -31,7 +37,7 @@
         </div>
     </div>
 </div>
-  
+
 @stop
 
 @section('css')
@@ -49,7 +55,7 @@
                 'success'
             )
         </script>
-        
+
     @endif
     <script>
         $('.crear-slider').submit(function(e){
@@ -69,5 +75,5 @@
                 }
             })
         })
-    </script> 
+    </script>
 @stop
