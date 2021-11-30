@@ -3,7 +3,7 @@
 @section('title', 'SLIDER')
 
 @section('content_header')
-    <h1>Listado De Slider</h1>
+    <h1>Listado Slider</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="callout callout-info">
-                    <a href="{{route('slider.crear')}}" class="btn btn-primary text-white float-right">CREAR</a>
+                    <a href="{{route('slider.crear')}}" class="btn btn-primary text-white float-right" style="text-decoration: none;">CREAR</a>
                     <h5><i class="fas fa-info"></i> Nota:</h5>
                     En esta seccion pueden habilitar los slider para la pagina principal.
                 </div>
@@ -36,19 +36,17 @@
                                         <td>{{ $s->id}}</td>
                                         <td>{{ $s->tit_slider}} {{ $s->tit_des_slider}}</td>
                                         <td>{{ $s->desc_slider}}</td>
-                                        <td><img src="{{ asset("/imagen/Slider/$s->rute_img_slider" )}}" alt="Slider{{ $s->id}}_dimet" width="90%" height="100"></td>
-                                        <td>
-                                            <form action="{{route('slider.ver',$s->id)}}" method="post">
-                                                @method('GET')
-                                                <button type="submit" class="btn btn-app btn-success"><i class="fas fa-eye"> </i>Ver</button>
-                                                <a href="{{route('slider.editar', $s->id)}}" class="btn btn-app"><i class="fas fa-edit"> </i>Editar</a>
-                                            </form>
-                                            <form action="{{route('slider.eliminar',$s->id)}}" method="post" class="eliminar-slider">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-app btn-danger"><i class="fas fa-trash"> </i>Eliminar</button>
-                                            </form>
-
+                                        <td><img src="{{ asset("/imagen/Slider/$s->rute_img_slider" )}}" alt="Servicio{{ $s->id}}_TuAsesoraContable" width="90%" height="100"></td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="{{route('slider.editar', $s->id)}}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"> </i></a>
+                                                &nbsp;
+                                                <form action="{{route('slider.eliminar',$s->id)}}" method="post" class="eliminar-slider">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"> </i></button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach

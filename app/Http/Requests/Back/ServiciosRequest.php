@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Front;
+namespace App\Http\Requests\Back;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SliderRequest extends FormRequest
+class ServiciosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            "rute_img_slider" => "required|image|mimes:jpeg,png|max:2000",
-            'tit_slider' => 'nullable'
+            "titulo" => "required",
+            'descripcion' => 'required'
         ];
     }
 }

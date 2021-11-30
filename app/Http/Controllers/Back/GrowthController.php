@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Back\ServiciosRequest;
 use App\Models\Front\Growth;
+use App\Models\Front\GrowthContent;
 use Illuminate\Http\Request;
 
 class GrowthController extends Controller
@@ -16,7 +18,8 @@ class GrowthController extends Controller
     public function index()
     {
         $services = Growth::all();
-        return view('theme.back.growth.index')->with('services', $services);
+        $servicesContent = GrowthContent::all();
+        return view('theme.back.growth.index')->with(['services' => $services, 'servicesContent' => $servicesContent]);
     }
 
     /**
@@ -26,7 +29,7 @@ class GrowthController extends Controller
      */
     public function create()
     {
-        //
+        return view('theme.back.growth.create');
     }
 
     /**
@@ -37,7 +40,31 @@ class GrowthController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->file('imagen')){
+            $request->validate([
+                "imagen" => "required|image|mimes:jpeg,png|max:2000",
+                'txt_btn' => 'nullable',
+                'url' => 'nullable',
+            ]);
+            $validado = $request->all();
+            if($imagen = $request->file('imagen')){
+                $rutaGuardada = 'imagen/Growth/';
+                $imagenServicio = date('YmhHis'). "." . $imagen->getClientOriginalExtension();
+                $imagen->move($rutaGuardada, $imagenServicio);
+                $validado['imagen'] = "$imagenServicio";
+            }
+            GrowthContent::create($validado);
+        }
+        else {
+            $request->validate([
+                "titulo" => "required",
+                'descripcion' => 'required',
+            ]);
+            $validado = $request->all();
+            Growth::create($validado);
+        }
+
+        return redirect('/admin/servicios')->with('mensaje', 'Servicio creado correctamente');
     }
 
     /**

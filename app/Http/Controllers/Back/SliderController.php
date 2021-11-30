@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Front\SliderRequest;
+use App\Http\Requests\Back\SliderRequest;
 use App\Models\Front\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
