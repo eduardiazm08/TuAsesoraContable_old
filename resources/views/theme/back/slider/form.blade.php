@@ -31,14 +31,17 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group">
-            <div class="input-group mb-3">
+            <div class="mb-3">
                 @error('desc_slider')
                     <small class="text text-danger">{{$message}}</small>
                 @enderror
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-pen-alt"></i></span>
-                </div>
-                <textarea class="form-control" rows="3" placeholder="Ingrese descripción ..." name="desc_slider" value="{{old('desc_slider')}}">@if(isset($data['desc_slider'])){{$data['desc_slider']}}@endif</textarea>
+                <textarea id="summernote"  placeholder="Ingrese descripción ..." name="desc_slider">
+                    @if(isset($data['desc_slider']))
+                        {{$data['desc_slider']}}
+                    @else
+                        {{old('desc_slider')}}
+                    @endif
+                </textarea>
             </div>
         </div>
     </div>

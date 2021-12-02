@@ -15,10 +15,11 @@ class CrearTablaGrowthContent extends Migration
     {
         Schema::create('growth_content', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
             $table->string('imagen');
             $table->string('url');
             $table->string('txt_btn');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

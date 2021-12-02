@@ -34,7 +34,7 @@
                                     </div>
                                     <h3>{{$s->tit_slider}}</h3>
                                     <h2><span>{{$s->tit_des_slider}}</span></h2>
-                                    <p>{{$s->desc_slider}}</p>
+                                    <p>{!!$s->desc_slider!!}</p>
                                     <a href="{{$s->url_btn_slider}}" class="thm-btn">{{$s->txt_btn_slider}}</a>
                                 </div>
                             </div>

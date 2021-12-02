@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'SLIDER')
+@section('title', 'Slider')
 
 @section('content_header')
     <h1>Listado Slider</h1>
@@ -35,7 +35,7 @@
                                     <tr>
                                         <td>{{ $s->id}}</td>
                                         <td>{{ $s->tit_slider}} {{ $s->tit_des_slider}}</td>
-                                        <td>{{ $s->desc_slider}}</td>
+                                        <td>{!! $s->desc_slider!!}</td>
                                         <td><img src="{{ asset("/imagen/Slider/$s->rute_img_slider" )}}" alt="Servicio{{ $s->id}}_TuAsesoraContable" width="90%" height="100"></td>
                                         <td class="text-right py-0 align-middle">
                                             <div class="btn-group btn-group-sm">

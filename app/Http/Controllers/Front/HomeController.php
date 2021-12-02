@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Front\GrowthContent;
 use App\Models\Front\Slider;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class HomeController extends Controller
     public function index()
     {
         $slider = Slider::all();
-        return view('theme.front.home.index')->with('slider', $slider);
+        $growth = GrowthContent::all();
+        return view('theme.front.home.index')->with(['slider' => $slider, 'growth' => $growth]);
     }
 
     /**

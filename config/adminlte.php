@@ -248,18 +248,21 @@ return [
         ],
         [
             'text'        => 'Escritorio',
-            'url'         => 'admin/',
+            'url'         => 'admin',
+            'active'        => ['admin'],
             'icon'        => 'fas fa-home',
         ],
         ['header' => 'ESTRUCTURA DEL HOME'],
         [
             'text'        => 'Slider',
             'url'         => 'admin/slider',
+            'active'        => ['admin/slider*'],
             'icon'        => 'fas fa-sliders-h',
         ],
         [
             'text'        => 'Servicios',
             'url'         => 'admin/servicios',
+            'active'        => ['admin/servicios*'],
             'icon'        => 'fas fa-tags',
         ],
         ['header' => 'account_settings'],

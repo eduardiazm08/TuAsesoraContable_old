@@ -24,8 +24,9 @@ class ServiciosRequest extends FormRequest
     public function rules()
     {
         return [
+            "imagen" => "required|image|mimes:jpeg,png|max:2000",
             "titulo" => "required",
-            'descripcion' => 'required'
+            'descripcion' => 'required',
         ];
     }
 }

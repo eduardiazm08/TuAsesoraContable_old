@@ -1,3 +1,19 @@
+<h5 class="mt-4 mb-2">Titulo</h5>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                @error('titulo')
+                    <small class="text text-danger">{{$message}}</small>
+                @enderror
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-link"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Ingrese titulo de servicio..." name="titulo" value="@if(isset($data['titulo'])){{$data['titulo']}}@else{{old('titulo')}}@endif">
+            </div>
+        </div>
+    </div>
+</div>
 <h5 class="mt-4 mb-2">Botón</h5>
 <div class="row">
     <div class="col-sm-6">
@@ -31,14 +47,17 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group">
-            <div class="input-group mb-3">
+            <div class="mb-3">
                 @error('descripcion')
                     <small class="text text-danger">{{$message}}</small>
                 @enderror
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-pen-alt"></i></span>
-                </div>
-                <textarea id="descServicios" class="form-control" rows="3" placeholder="Ingrese descripción ..." name="descripcion" value="{{old('descripcion')}}">@if(isset($data['descripcion'])){{$data['descripcion']}}@endif</textarea>
+                <textarea id="summernote"  placeholder="Ingrese descripción ..." name="descripcion">
+                    @if(isset($data['descripcion']))
+                        {{$data['descripcion']}}
+                    @else
+                        {{old('descripcion')}}
+                    @endif
+                </textarea>
             </div>
         </div>
     </div>
@@ -49,7 +68,7 @@
         <div class="form-group">
             <div class="image-area mt-4">
                 <img id="imageResult" src="@if (isset($data['imagen']))
-                    {{asset('imagen/Slider/'.$data['imagen'])}}
+                    {{asset('imagen/Growth/'.$data['imagen'])}}
                 @else
                     #
                 @endif" alt="" class="img-fluid rounded shadow-sm mx-auto d-block" style="height: 140px; width: 100%; padding:5px" >
@@ -73,4 +92,8 @@
         </div>
     </div>
 </div>
+
+
+
+
 

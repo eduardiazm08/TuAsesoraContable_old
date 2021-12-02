@@ -82,7 +82,7 @@ class SliderController extends Controller
             $validado['rute_img_slider'] = "$imagenSlider";
         }
         else {
-            unset($validado['imagen']);
+            unset($validado['rute_img_slider']);
         }
 
         Slider::findOrFail($id)->update($validado);

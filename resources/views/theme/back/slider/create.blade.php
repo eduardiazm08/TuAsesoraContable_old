@@ -47,10 +47,12 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('/assets/css/admin_custom.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @stop
 
 @section('js')
     <script src="{{asset('assets/js/upload-img.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if (session('guardar') == 'ok')
         <script>
@@ -80,5 +82,14 @@
                 }
             })
         })
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#summernote').summernote(
+            {
+                lang: 'es-ES',
+            }
+        );        
+      });
     </script>
 @stop

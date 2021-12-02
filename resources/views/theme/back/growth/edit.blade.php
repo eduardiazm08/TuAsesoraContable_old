@@ -1,13 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Servicio')
+@section('title', 'Editar Servicio')
 
 @section('content_header')
-      <h3>Crear Servicio</h3>
+      <h3>Editar Servicio</h3>
 @stop
 
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -23,26 +22,24 @@
                             <h3 class="card-title">los campos con (*) son obligatorios</h3>
                         </div>
                         <div class="card-body">
-                            <form method="POST" enctype="multipart/form-data" action="{{route('servicios.guardar')}}" class="crear-servicio">
+                            <form method="POST" enctype="multipart/form-data" action="{{route('servicios.actualizar', $data->id)}}" class="editar-slider">
                                 @csrf
+                                @method('PUT')
                                 @include('theme.back.growth.form')
                                 <div class="row float-right">
                                     <div class="col-12">
                                         <a href="{{route('slider')}}" class="btn btn-danger" tabindex="5">Cancelar</a>
-                                        <button type="submit" class="btn btn-primary" tabindex="4">Crear Servicio</button>
+                                        <button type="submit" class="btn btn-primary" tabindex="4">Actualizar</button>
                                     </div>
                                 </div>
                             </form>
-                        <!-- /input-group -->
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
+                  <!-- /input-group -->
                 </div>
+                <!-- /.card-body -->
             </div>
         </div>
     </div>
 </div>
-
 @stop
 
 @section('css')
@@ -89,12 +86,12 @@
     </script>
     <script>
         $(document).ready(function() {
-        $('#summernote').summernote(
-            {
-                lang: 'es-ES',
-            }
-        );        
-      });
+            $('#summernote').summernote(
+                {
+                    lang: 'es-ES',
+                }
+            );        
+        });
     </script>
     
 @stop
