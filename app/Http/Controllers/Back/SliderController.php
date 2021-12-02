@@ -7,7 +7,7 @@ use App\Http\Requests\Back\SliderRequest;
 use App\Models\Front\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class SliderController extends Controller
 {
@@ -54,7 +54,7 @@ class SliderController extends Controller
 
         return redirect('/admin/slider/crear')->with('mensaje', 'Slider guardado correctamente');
     }
-    
+
     public function edit($id)
     {
         $data = Slider::findOrFail($id);
@@ -98,6 +98,12 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
+        $data = Slider::findOrFail($id);
+        $url = 'imagen/Slider/'.$data['rute_img_slider'];
+        if(File::exists($url))
+        {
+            File::delete($url);
+        }
         Slider::destroy($id);
         return redirect('/admin/slider')->with('mensaje', 'Slider Eliminado correctamente');
     }

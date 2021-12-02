@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Back\ServiciosRequest;
 use App\Models\Front\GrowthContent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class GrowthController extends Controller
 {
@@ -51,16 +51,14 @@ class GrowthController extends Controller
         $request->validated();
         $validado = $request->all();
 
-        if($request->file('imagen')){
-            /* $rutaGuardada = 'imagen/Growth/';
+        if($imagen = $request->file('imagen')){
+            $rutaGuardada = 'imagen/Growth/';
             $imagenServicios = date('YmhHis'). "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardada, $imagenServicios);
-            $validado['imagen'] = "$imagenServicios"; */
-            $imgGrowth = $request->file('imagen')->store('public/imagen/Growth');
-            $url = Storage::url($imgGrowth);
+            $validado['imagen'] = "$imagenServicios";
         }
 
-        GrowthContent::create($validado, $url);
+        GrowthContent::create($validado);
 
         return redirect('/admin/servicios')->with('mensaje', 'Servicio creado correctamente');
     }
@@ -125,11 +123,11 @@ class GrowthController extends Controller
     {
         $data = GrowthContent::findOrFail($id);
         $url = 'imagen/Growth/'.$data['imagen'];
-        if(GrowthContent::exists($url))
+        if(File::exists($url))
         {
-            GrowthContent::delete($url);
+            File::delete($url);
         }
-        
+        GrowthContent::destroy($id);
         return redirect('/admin/servicios')->with('mensaje', 'Servicio Eliminado correctamente');
     }
 }

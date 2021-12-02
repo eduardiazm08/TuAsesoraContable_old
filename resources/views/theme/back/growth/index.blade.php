@@ -15,7 +15,7 @@
           @if ($count < 3)
             <a href="{{route('servicios.crear')}}" class="btn btn-primary text-white float-right" style="text-decoration: none;">CREAR</a>
           @endif
-          
+
           <h5><i class="fas fa-info"></i> Nota:</h5>
           En esta seccion solo estaran habilitado tres servicios principales.
         </div>
@@ -64,7 +64,7 @@
                   @foreach ($servicesContent as $s)
                     <tr>
                       <td>{{ $s->id}}</td>
-                      <td><img src="{{ asset($s->imagen)}}" alt="Servicio{{ $s->id}}_TuAsesoraContable" width="90%" height="100"></td>
+                      <td><img src="{{ asset('/imagen/Growth/'.$s->imagen)}}" alt="Servicio{{ $s->id}}_TuAsesoraContable" width="90%" height="100"></td>
                       <td>{{ $s->url}}</td>
                       <td>{{ $s->txt_btn}}</td>
                       <td>{!! ($s->descripcion) !!}</td>
