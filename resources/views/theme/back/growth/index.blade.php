@@ -17,7 +17,7 @@
           @endif
 
           <h5><i class="fas fa-info"></i> Nota:</h5>
-          En esta seccion solo estaran habilitado tres servicios principales.
+          En esta seccion solo podra crear tres servicios.
         </div>
         <!-- Main content -->
         <div class="invoice p-3 mb-3">
@@ -72,7 +72,7 @@
                         <div class="btn-group btn-group-sm">
                             <a href="{{route('servicios.editar', $s->id)}}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"> </i></a>
                             &nbsp;
-                            <form action="{{route('servicios.eliminar',$s->id)}}" method="post" class="eliminar-slider">
+                            <form action="{{route('servicios.eliminar',$s->id)}}" method="post" class="eliminar-servicio">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"> </i></button>
@@ -94,6 +94,36 @@
 @stop
 
 @section('js')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (session('eliminar') == 'ok')
+    <script>
+        Swal.fire(
+            '¡Eliminado!',
+            'El slider a sido eliminado.',
+            'success'
+        )
+    </script>
+
+@endif
+<script>
+    $('.eliminar-servicio').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Estas seguro de eliminar?',
+            text: "¡El slider se eliminara definitivamente!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si, eliminar!',
+            cancelButtonText: '¡Cancelar!'
+        }).then((result) => {
+            if(result.value){
+                this.submit();
+            }
+        })
+    })
+</script>
     <script>
       $(document).ready(function () {
         var markupStr = $('#summernote').summernote('');
